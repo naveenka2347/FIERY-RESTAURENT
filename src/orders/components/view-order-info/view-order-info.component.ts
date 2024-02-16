@@ -3,6 +3,8 @@ import { OrderService } from '../../../service/order.service';
 import { NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Order } from '../../models/order';
+
 
 @Component({
   selector: 'app-view-order-info',
@@ -13,29 +15,41 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class ViewOrderInfoComponent {
 
-  orderId: number = 0;
-  parentData: any
-  orderobj: any
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  orderId: string ='';
+  orders: Order[] = [];
+  orderobj: Order={
+    id: 0,
+    contactName: '',
+    orderDate: '',
+    itemsOrdered: 0,
+    orderTotal: 0,
+    taxTotal: 0,
+    grandTotal: 0,
+    url: '',
+    items: []
+  };
+
+  constructor(private route: ActivatedRoute, private orderservice:OrderService) {
+    
+   }
   
 
   ngOnInit(): void {
+    console.log("ng on it executing")
     this.route.params.subscribe(params => {
       this.orderId = params['id'];
-      console.log(this.orderId);
       this.getByid(this.orderId)
+      
     })
   }
-  getAll() {
-    this.http.get('http://localhost:3000/orders')
-      .subscribe((res) => { this.parentData = res });
-  }
-  getByid(id: number) {
+  // getAll() {
+    
+  //   this.orderservice.getOrders().subscribe((orders) => { this.orders = orders });
+  // }
+  getByid(id: string) {
   {
-    console.log('getByid')
-    this.http.get(`http://localhost:3000/orders/${id}`)
-    .subscribe((res1) => { this.orderobj = res1 });
-    console.log(this.orderobj);
+    console.log("get by id")
+    this.orderservice.getOrdersById(id).subscribe((order) => { this.orderobj = order});
   }
   }
 

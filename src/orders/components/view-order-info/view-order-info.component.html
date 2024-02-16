@@ -1,25 +1,47 @@
-<div  *ngIf="orderobj" style="margin-top: 100px;"  class="card1" >
-   <div style=" border: 5px solid green; padding:15px ">
-<h3>Person details:</h3>
-     <p >orderNo: {{ orderobj.id }}</p>
-   <p>PersonName: {{ orderobj.ContactName }}</p>
-      <p >ordered date: {{ orderobj.OrderDate }}</p>
-    <p >number of items ordered: {{ orderobj.ItemsOrdered }}</p>
-    <p >order total: {{ orderobj.OrderTotal }}</p>
-    <p >order tax: {{ orderobj.taxTotal }}</p>
-    <p >order Grand total: {{ orderobj.GrandTotal }}</p>
-   </div>
-    <div style=" border: 5px solid green; padding:15px">
-        <h5>Items:</h5>
-    <ul>
-      <li *ngFor="let item of orderobj.items">
-        <p>Item ID: {{ item.itemNo }}</p>
-        <p>Item Name: {{ item.name }}</p>
-        <p>Quantity: {{ item.quantity }}</p>
-        <p>Price: {{ item.price }}</p>
-        <p>Quantity: {{ item.itemValue }}</p>
-        
-      </li>
-    </ul>
+
+
+  <div style="display: flex; justify-content: space-evenly;">
+    <div class="card-container" style="height: 400px;">
+      <div class="card" >
+        <img [src]="orderobj.url" alt="{{ orderobj.url}}" height="200px" width="265px" >
+        <div class="card-body">
+          <p >orderNo: {{ orderobj.id }}</p>
+          <p>PersonName: {{ orderobj.contactName }}</p>
+             <p >ordered date: {{ orderobj.orderDate }}</p>
+           <p >number of items ordered: {{ orderobj.itemsOrdered }}</p>
+           <p >order total: {{ orderobj.orderTotal }}</p>
+           <p >order tax: {{ orderobj.taxTotal }}</p>
+           <p >order Grand total: {{ orderobj.grandTotal }}</p>
+            
+          
+        </div>
+      </div>
     </div>
-   </div>
+    <div class="card-container" >
+      <div class="card"  *ngFor="let item of orderobj.items" >
+        <img [src]="item.url" alt="{{ item.url}}" height="200px" width="250px"  >
+        <div class="card-body"> 
+              <p>Item ID: {{ item.id }}</p>
+              <p>Item Name: {{ item.name }}</p>
+              <p>Quantity: {{ item.quantity }}</p>
+              <p>Price: {{ item.price }}</p>
+             
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="card-container">
+    <div *ngFor="let order of orders" class="card" (click)="selectOrder(order.id)">
+      <img [src]="order.url" alt="{{ order.url}}" height="200px" width="265px" >
+      <div class="card-body">
+      
+          <p class="card-text">orderNo: {{ order.id }}</p>
+        <h5 class="card-title">PersonName: {{ order.contactName }}</h5>
+      
+       
+          <p class="card-text">ordered date: {{ order.orderDate }}</p>
+          
+        
+      </div>
+    </div>
+  </div> -->
