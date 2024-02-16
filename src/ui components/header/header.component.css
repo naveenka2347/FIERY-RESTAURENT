@@ -1,0 +1,54 @@
+.navbar{
+    display: flex;
+}
+
+.fiery{
+
+    text-shadow: 2PX  2PX 4PX yellow;
+    letter-spacing: 20PX;
+    line-height: 100px;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+/* background-color: red; */
+    height: 40px;
+}
+.buttons{
+    
+    border: none;
+    border-radius: 10px;
+   color:red;
+   
+   font-size: large;
+   padding: 15px;
+   text-decoration: none;
+   font-weight: bold;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: wheat;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-content a:hover {
+  background-color:yellow;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

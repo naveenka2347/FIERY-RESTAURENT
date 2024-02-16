@@ -1,0 +1,19 @@
+
+  
+  body,html{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+  H1{
+    color:orangered
+    /* margin-left: 400px; */
+   
+  }
+  .home{
+    display: flex;
+  }
+  body{
+    background-color: wheat;
+  }

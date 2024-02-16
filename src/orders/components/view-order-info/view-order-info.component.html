@@ -1,0 +1,25 @@
+<div  *ngIf="orderobj" style="margin-top: 100px;"  class="card1" >
+   <div style=" border: 5px solid green; padding:15px ">
+<h3>Person details:</h3>
+     <p >orderNo: {{ orderobj.id }}</p>
+   <p>PersonName: {{ orderobj.ContactName }}</p>
+      <p >ordered date: {{ orderobj.OrderDate }}</p>
+    <p >number of items ordered: {{ orderobj.ItemsOrdered }}</p>
+    <p >order total: {{ orderobj.OrderTotal }}</p>
+    <p >order tax: {{ orderobj.taxTotal }}</p>
+    <p >order Grand total: {{ orderobj.GrandTotal }}</p>
+   </div>
+    <div style=" border: 5px solid green; padding:15px">
+        <h5>Items:</h5>
+    <ul>
+      <li *ngFor="let item of orderobj.items">
+        <p>Item ID: {{ item.itemNo }}</p>
+        <p>Item Name: {{ item.name }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Price: {{ item.price }}</p>
+        <p>Quantity: {{ item.itemValue }}</p>
+        
+      </li>
+    </ul>
+    </div>
+   </div>
